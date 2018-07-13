@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>水质检测</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body style="margin:0px;">
+  <div id="app">
+    <el-container style="height: 100%; border: 1px solid #eee">
+      <el-header height="90px" style="padding:0px;">
+        <div id="logo">
+          LOGO
+        </div>
+      </el-header>
+      <el-container id="mainArea">
+        <el-aside width="220px" style="background-color:#545c64">
+          <el-menu
+          default-active="1"
+          @open="handleOpen"
+          @close="handleClose"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+          style="border:0px;">
+            <el-menu-item index="1">
+              <i class="el-icon-view"></i>
+              <span slot="title">实时监控</span>
+            </el-menu-item>
+            <el-submenu index="2">
+              <template slot="title">
+                <i class="el-icon-time"></i>
+              <span>温度湿度监控</span>
+              </template>
+              <el-menu-item index="2-1">生产车间</el-menu-item>
+              <el-menu-item index="2-2">仓库</el-menu-item>
+            </el-submenu>
+            <el-menu-item index="3">
+              <i class="el-icon-document"></i>
+              <span slot="title">实验检验数据</span>
+            </el-menu-item>
+            <el-submenu index="4">
+              <template slot="title">
+                <i class="el-icon-tickets"></i>
+              <span>更换数据</span>
+              </template>
+              <el-menu-item index="4-1">设备</el-menu-item>
+              <el-menu-item index="4-2">耗材</el-menu-item>
+            </el-submenu>
+            <el-submenu index="5">
+              <template slot="title">
+                <i class="el-icon-date"></i>
+              <span>数据分析</span>
+              </template>
+              <el-menu-item index="5-1">微生物污染</el-menu-item>
+              <el-menu-item index="5-2">化学污染</el-menu-item>
+              <el-menu-item index="5-2">关联分析</el-menu-item>
+            </el-submenu>
+          </el-menu>
+        </el-aside>
+
+        <el-main style="margin-left:220px;">
+
+        </el-main>
+
+      </el-container>
+    </el-container>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="js/main.js"></script>
+
+</html>

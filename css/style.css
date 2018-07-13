@@ -1,0 +1,31 @@
+.el-header {
+  background-color: rgb(7, 61, 142);
+  line-height: 90px;
+  text-align: right;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
+.el-aside {
+  position: fixed;
+  left: 1px;
+  top: 91px;
+  height: 90%;
+  color: #333;
+  overflow: scroll;
+}
+
+
+#logo {
+  font-size: 300%;
+  color: white;
+  width: 190px;
+  background-color: rgb(46, 48, 50);
+  padding-left: 30px;
+  text-align: left;
+}
+
+#mainArea {
+  margin-top: 101px;
+}
