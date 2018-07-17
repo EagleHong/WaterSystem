@@ -18,12 +18,10 @@
           LOGO
         </div>
       </el-header>
-      <el-container id="mainArea">
+      <el-container id="Area">
         <el-aside width="220px" style="background-color:#545c64">
           <el-menu
           default-active="1"
-          @open="handleOpen"
-          @close="handleClose"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
@@ -64,13 +62,23 @@
           </el-menu>
         </el-aside>
 
-        <el-main style="margin-left:220px;">
-
+        <el-main id="mainArea">
+          <!-- 第一行 -->
+          <el-row :gutter="30" justify="center">
+            <div
+              is="data-div"
+              v-for="item of items"
+              :key="item.id"
+              v-bind:item="item"
+              v-on:jump="jump($event)">
+            </div>
+          </el-row>
         </el-main>
 
       </el-container>
     </el-container>
   </div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
