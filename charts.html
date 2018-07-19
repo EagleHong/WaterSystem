@@ -21,7 +21,6 @@
       <el-container id="Area">
         <el-aside width="220px" style="background-color:#545c64">
           <el-menu
-          default-active="1"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
@@ -63,49 +62,69 @@
         </el-aside>
 
         <el-main id="mainArea">
-          <!-- 第一行 -->
-          <h2>实时水质数据</h2>
-          <!-- <hr class="hr3"> -->
-          <el-row :gutter="30">
-            <div
-              is="data-div"
-              v-for="item of items"
-              :key="item.id"
-              :item="item"
-              :blue=true
-              :title1='"水源地"'
-              :title2='"成品水"'
-              v-on:jump="jump($event)">
-            </div>
+          <h2>实时数据图</h2>
+          <div class="itemPicker">
+            选择想要查询的项目:&nbsp &nbsp
+            <template>
+            <el-select v-model="value" placeholder="项目">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+            </template>
+          </div>
+          <el-row :gutter="20" style="margin:20px;">
+            <el-col :sm="24" :md="12">
+              <div id="realTimeChart" class="Chart">
+              </div>
+            </el-col>
+              <el-col :sm="24" :md="12">
+                <div id="realTimeChart2" class="Chart">
+                </div>
+            </el-col>
           </el-row>
-          <!-- 厂房数据 -->
-          <h2 id="temperature">温度湿度监控</h2>
-          <!-- <hr class="hr3"> -->
-          <el-row :gutter="30" >
-            <div
-              is="data-div"
-              v-for="item of items2"
-              :key="item.id"
-              :item="item"
-              :green=true
-              :title1='"温度"'
-              :title2='"湿度"'
-              v-on:jump="jump($event)">
-            </div>
+          <h2>近期数据变化</h2>
+          <el-row :gutter="20" style="margin:20px;">
+            <el-col :xs="24" :sm="12" :lg="8">
+              <div id="historyChart1" class="Chart" style="height:300px;">
+              </div>
+            </el-col>
+            <el-col :xs="24" :sm="12" :lg="8">
+                <div id="historyChart2" class="Chart" style="height:300px;">
+                </div>
+            </el-col>
+            <el-col :xs="24" :sm="12" :lg="8">
+                <div id="historyChart3" class="Chart" style="height:300px;">
+                </div>
+            </el-col>
           </el-row>
-          <el-row :gutter="30">
-            <div
-              is="data-div"
-              v-for="item of items3"
-              :key="item.id"
-              :item="item"
-              :purple=true
-              :title1='"温度"'
-              :title2='"湿度"'
-              v-on:jump="jump($event)">
-            </div>
+          <h2>查询指定时间范围数据变化</h2>
+          <div class="itemPicker">
+            选择想要查询的日期范围:&nbsp &nbsp
+            <template>
+              <el-date-picker
+                  v-model="value7"
+                  type="daterange"
+                  align="right"
+                  unlink-panels="true"
+                  range-separator="-"
+                  size="large"
+                  start-placeholder="开始日期"
+                  end-placeholder="结束日期"
+                  :picker-options="pickerOptions2">
+              </el-date-picker>
+            </template>
+          </div>
+          <el-row :gutter="20" style="margin:20px;">
+            <el-col :span="24">
+              <div id="selectChart" class="Chart" style="height:500px;">
+              </div>
+            </el-col>
+
           </el-row>
-          
         </el-main>
 
       </el-container>
@@ -115,6 +134,7 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="js/echarts.min.js"></script>
 <script src="js/main.js"></script>
-
+<script src="js/charts.js"></script>
 </html>
